@@ -4,4 +4,7 @@ WORKDIR /tmp/work
 
 COPY requirements.txt ${PWD}
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt \
+    && apt-get update && apt-get install -y git \
+    && pip install -U autopep8
+
